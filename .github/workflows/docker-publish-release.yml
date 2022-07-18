@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    if: github.repository_owner == 'TandoorRecipes'
+    if: github.repository_owner == 'iamkarlson'
     runs-on: ubuntu-latest
     name: Build image job
     steps:
@@ -39,7 +39,7 @@ jobs:
         uses: ilteoood/docker_buildx@master
         with:
           publish: true
-          imageName: vabene1111/recipes
+          imageName: iamkarlson/tandoor-recipes
           platform: linux/amd64,linux/arm64
           tag: ${{ steps.get_version.outputs.VERSION }}
           dockerUser: ${{ secrets.DOCKER_USERNAME }}
@@ -50,4 +50,4 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_RELEASE_WEBHOOK }}
         uses: Ilshidur/action-discord@0.3.2
         with:
-          args: '🚀 Version {{ EVENT_PAYLOAD.release.tag_name }} of tandoor has been released 🥳 Check it out https://github.com/vabene1111/recipes/releases/tag/{{ EVENT_PAYLOAD.release.tag_name }}'
+          args: '🚀 Version {{ EVENT_PAYLOAD.release.tag_name }} of tandoor has been released 🥳 Check it out https://github.com/iamkarlson/tandoor-recipes/releases/tag/{{ EVENT_PAYLOAD.release.tag_name }}'

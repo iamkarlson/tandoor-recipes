@@ -15,7 +15,7 @@ WORKDIR /opt/recipes
 
 COPY requirements.txt ./
 
-RUN apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev zlib-dev jpeg-dev libwebp-dev openssl-dev libffi-dev cargo openldap-dev python3-dev git && \
+RUN apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev zlib-dev jpeg-dev libwebp-dev openssl-dev libffi-dev cargo openldap-dev python3-dev git bash && \
     echo -n "INPUT ( libldap.so )" > /usr/lib/libldap_r.so && \
     python -m venv venv && \
     /opt/recipes/venv/bin/python -m pip install --upgrade pip && \
@@ -27,4 +27,5 @@ RUN apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev zlib-de
 #Copy project and execute it.
 COPY . ./
 RUN chmod +x boot.sh
+RUN cat /etc/shells
 ENTRYPOINT ["/opt/recipes/boot.sh"]

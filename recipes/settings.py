@@ -52,6 +52,8 @@ SHOPPING_MIN_AUTOSYNC_INTERVAL = int(os.getenv('SHOPPING_MIN_AUTOSYNC_INTERVAL',
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',') if os.getenv('ALLOWED_HOSTS') else ['*']
 
+CSRF_TRUSTED_ORIGINS= os.getenv('CSRF_TRUSTED_ORIGINS').split(',') if os.getenv('CSRF_TRUSTED_ORIGINS') else ['*']
+
 CORS_ORIGIN_ALLOW_ALL = True
 
 LOGIN_REDIRECT_URL = "index"

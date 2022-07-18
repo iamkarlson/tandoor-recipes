@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    if: github.repository_owner == 'TandoorRecipes'
+    if: github.repository_owner == 'iamkarlson'
     runs-on: ubuntu-latest
     name: Build image job
     steps:
@@ -39,7 +39,7 @@ jobs:
         uses: ilteoood/docker_buildx@master
         with:
           publish: true
-          imageName: vabene1111/recipes
+          imageName: iamkarlson/tandoor-recipes
           dockerFile: Dockerfile-raspi
           platform: linux/arm/v7
           tag: ${{ steps.get_version.outputs.VERSION }}-raspi
